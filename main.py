@@ -1,4 +1,3 @@
-
 # Función recursiva para generar todas las combinaciones de longitud dada
 def generar_combinaciones(alfabeto, longitud):
     if longitud == 0:
@@ -11,16 +10,6 @@ def generar_combinaciones(alfabeto, longitud):
             nuevas_combinaciones.append(simbolo + combinacion)
     
     return nuevas_combinaciones
-
-
-
-
-
-def main():
-    print("Se ejecuta")
-
-main()
-
 
 # Definir el lenguaje como un conjunto de palabras
 def definir_lenguaje():
@@ -43,4 +32,26 @@ def pertenece_al_lenguaje(lenguaje, cadena):
         print(f"La cadena '{cadena}' pertenece al lenguaje.")
     else:
         print(f"La cadena '{cadena}' NO pertenece al lenguaje.")
+
+
+def imprimir_combinaciones(combinaciones):
+     # Mostrar las combinaciones
+    print("Todas las posibles palabras generadas son:")
+    for combinacion in combinaciones:
+        print(combinacion)
+
+
+def main():
+    alfabeto= definir_lenguaje()
+    longitud_palabra = int(input("¿Cuál es la longitud de las palabras que quieres generar? "))
+    combinaciones = generar_combinaciones(alfabeto, longitud_palabra)
+    imprimir_combinaciones(combinaciones)
+
+    lenguaje = definir_lenguaje()
+
+    cadena = input("Ingrese la cadena a verificar: ")
+    pertenece_al_lenguaje(lenguaje, cadena)
+
+main()
+
 
