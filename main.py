@@ -1,3 +1,14 @@
+def main():
+    alfabeto= definir_lenguaje()
+    longitud_palabra = int(input("¿Cuál es la longitud de las palabras que quieres generar? "))
+    combinaciones = generar_combinaciones(alfabeto, longitud_palabra)
+    imprimir_combinaciones(combinaciones)
+
+    lenguaje = definir_lenguaje()
+
+    cadena = input("Ingrese la cadena a verificar: ")
+    pertenece_al_lenguaje(lenguaje, cadena)
+
 # Función recursiva para generar todas las combinaciones de longitud dada
 def generar_combinaciones(alfabeto, longitud):
     if longitud == 0:
@@ -40,18 +51,42 @@ def imprimir_combinaciones(combinaciones):
     for combinacion in combinaciones:
         print(combinacion)
 
+def validarCadenaConFunciones(array_caracteres):
+    # Solicitar la entrada de la cadena desde la terminal
+    cadena = input("Por favor ingrese una cadena: ")
 
-def main():
-    alfabeto= definir_lenguaje()
-    longitud_palabra = int(input("¿Cuál es la longitud de las palabras que quieres generar? "))
-    combinaciones = generar_combinaciones(alfabeto, longitud_palabra)
-    imprimir_combinaciones(combinaciones)
+    # Comprobar las tres condiciones
+    es_valido_alfabeto = tieneSoloLetrasDelAlfabeto(cadena, array_caracteres)
+    tiene_minimo_dos = tieneMinimoDosCaracteres(cadena)
+    tiene_secuencia_dos = tieneSecuenciaDosCaracteres(cadena)
 
-    lenguaje = definir_lenguaje()
+    # Verificar si todas las condiciones son True
+    if es_valido_alfabeto and tiene_minimo_dos and tiene_secuencia_dos:
+        print("La cadena ingresada cumple con todas las condiciones.")
+        #return True
+    else:
+        print("La cadena ingresada no cumple con todas las condiciones.")
+        #return False
 
-    cadena = input("Ingrese la cadena a verificar: ")
-    pertenece_al_lenguaje(lenguaje, cadena)
+def tieneSoloLetrasDelAlfabeto(cadena, array_caracteres):
+    # Convertimos la lista de caracteres en un conjunto para optimizar las búsquedas
+    conjunto_caracteres = set(array_caracteres)
+    
+    # Recorremos cada letra de la cadena y verificamos si está en el conjunto
+    for letra in cadena:
+        if letra not in conjunto_caracteres:
+            return False
+    return True
+
+def tieneMinimoDosCaracteres(cadena):
+    return len(cadena) >= 2
+
+def tieneSecuenciaDosCaracteres(cadena):
+    # Recorremos la cadena desde el primer hasta el penúltimo carácter
+    for i in range(len(cadena) - 1):
+        # Comprobamos si el carácter actual es igual al siguiente
+        if cadena[i] == cadena[i + 1]:
+            return True
+    return False
 
 main()
-
-
