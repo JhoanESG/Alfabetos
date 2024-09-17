@@ -103,4 +103,3 @@ def buscar_por_prefijo_sufijo(lenguaje, prefijo, sufijo):
     else:
         print(f"No se encontraron palabras que comiencen con '{prefijo}' o terminen con '{sufijo}'.")
 
-main()
