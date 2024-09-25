@@ -1,6 +1,8 @@
 NOTAS
 '''''
 
+El programa se ejecuta desde el archivo interfaz.py
+
 Gran parte de las funciones requieren de que ya se haya creado un alfabeto antes
 de poder usarlas.
 Al solicitar definir el alfabeto, el alfabeto debe ingregarse por consola.
