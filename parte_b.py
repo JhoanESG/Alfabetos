@@ -131,7 +131,7 @@ def concatenar_lenguajes(lenguaje1,lenguaje2):
 def calcular_cerradura_estrella(lenguaje1):
     longitud_maxima = 3
     estrella = []
-    estrella.append('epsilon')
+    estrella.append('ε')
     for palabra in lenguaje1:
         for i in range(1, longitud_maxima + 1):
             estrella.append(palabra * i)
