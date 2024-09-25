@@ -427,7 +427,7 @@ menu_ayuda = tk.Menu(barra_menu, tearoff=0)
 barra_menu.add_cascade(label="Ayuda", menu=menu_ayuda)
 
 # Añadir opciones al menú "Ayuda"
-menu_ayuda.add_command(label="Acerca de", command=lambda: messagebox.showinfo("Acerca de", "Esta es una aplicación de ejemplo"))
+menu_ayuda.add_command(label="Acerca de", command=lambda: messagebox.showinfo("Acerca de", "Esta es una aplicación para realizar operaciones sobre alfabetos, lenguajes y palabras"))
 
 boton_def_alfabeto = tk.Button(ventana, text="Definir Alfabeto", command=definir_alfabeto)
 boton_def_alfabeto.pack(pady=10)

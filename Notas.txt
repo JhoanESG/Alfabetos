@@ -1,0 +1,26 @@
+NOTAS
+'''''
+
+Gran parte de las funciones requieren de que ya se haya creado un alfabeto antes
+de poder usarlas.
+Al solicitar definir el alfabeto, el alfabeto debe ingregarse por consola.
+Se recomienda crear el alfabeto como simbolos de caracteres individuales, sin 
+embargo, es posible crear un lenguaje con concatenaciones de simbolos, por ejemplo,
+{"as", "f", "pel"}.
+
+Para la generacion de los lenguajes el alfabeto ya debe existir, la creacion del 
+lenguaje requiere unicamente del tamaño de las palabras que se quiere que tenga 
+el lenguaje.
+Se puede generar solo 3 lenguajes, y cada lenguaje puede ser generado sobre el mismo
+alfabeto o sobre distintos alfabetos, pero, para generar lenguajes en distintos
+alfabetos se debe definir un alfabeto, generar el lenguaje, luego reescribir el 
+alfabeto ya generado definiendolo de nuevo, proseguir a crear otro lenguaje y asi
+hasta el 3er lenguaje.
+
+La cerradura de estrella y la cerradura positiva se calculan con base a las palabras
+en cada lenguaje. Para calcularlas se debe especificar el numero del lenguaje sobre
+el que se realizara la operacion, por ejemplo, para calcular la cerradura de estrella
+al Lenguaje 2, se ingresa el caracter '2' .
+
+Las funciones para modificar cadenas, como reemplazar, invertir y reemplazar toda la
+cadena, no necesitan de un alfabeto o lenguaje definido.
