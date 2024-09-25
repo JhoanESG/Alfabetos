@@ -2,17 +2,6 @@ from main import *
 import random   
 import itertools
 
-# def main ():
-#     #PUNTO 3 FORMAR PALINDROMAS 
-#     conjunto = {"a", "b", "t", "wz"}
-#     palindromos = generar_palindromos_desde_caracteres(conjunto)
-#     print(f"Palíndromos generados: {palindromos}")
-
-#     #PUNTO 4 VERIFICAR QUE ES PALINDROME
-#     cadena = input("Ingrese la cadena a verificar: ")
-#     r = es_palindromo(cadena, palindromos)
-#     print(r)
-
 def generar_palindromos_desde_caracteres(conjunto_cadenas):
     # Separar cada carácter del conjunto de cadenas en una lista de caracteres
     caracteres = ''.join(conjunto_cadenas)
@@ -58,9 +47,9 @@ def es_palindromo(cadena, alfabeto):
     
     # Si pertenece al alfabeto, verificar si es un palíndromo
     if cadena_limpia == cadena_limpia[::-1]:
-        return "La cadena ingresada es un palíndromo."
+        return "¡SI!, la cadena ingresada es un palíndromo."
     else:
-        return "La cadena ingresada no es un palíndromo."
+        return "¡NO!, la cadena ingresada no es un palíndromo."
 
 def reemplazar_caracteres(cadena, caracter, reemplazo):
     nueva_cadena = ""

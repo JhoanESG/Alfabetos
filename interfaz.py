@@ -7,6 +7,7 @@ alfabeto = set()
 lenguaje1 = set()
 lenguaje2 = set()
 lenguaje3 = set()
+palindromos = set()
 
 def nueva_archivo():
     messagebox.showinfo("Nuevo", "Opción 'Nuevo Archivo' seleccionada")
@@ -26,6 +27,20 @@ def definir_alfabeto():
 
     # Mostrar el resultado
     messagebox.showinfo("Alfabeto", alfabeto)
+
+def mostrar_alfabeto():
+    # Crear una ventana oculta para usar simpledialog
+    ventana_oculta = tk.Tk()
+    ventana_oculta.withdraw()  # Oculta la ventana principal
+
+    global alfabeto
+    
+    # Verificar si el conjunto de palindromos tiene elementos
+    if not alfabeto:
+        messagebox.showerror("Error", "No ha definido un alfabeto")
+        return
+    
+    messagebox.showinfo("Lenguaje", alfabeto)
 
 def generar_lenguaje():
     # Crear una ventana oculta para usar simpledialog
@@ -272,6 +287,58 @@ def mostrar_lenguaje():
     
     messagebox.showinfo("Lenguaje", a)
 
+def generar_palindromos_alfabeto():
+    # Crear una ventana oculta para usar simpledialog
+    ventana_oculta = tk.Tk()
+    ventana_oculta.withdraw()  # Oculta la ventana principal
+
+    #Verificar que exista un alfabeto
+    global alfabeto
+    if not alfabeto:  # Verifica si alfabeto está vacío
+        messagebox.showerror("Error", "Primero debe crear un alfabeto")
+        return
+
+    global palindromos
+
+    # Calcular palindromos con el alfabeto
+    palindromos = B.generar_palindromos_desde_caracteres(alfabeto)
+    messagebox.showinfo("Palindromos", palindromos)
+
+def es_palindromo():
+    # Crear una ventana oculta para usar simpledialog
+    ventana_oculta = tk.Tk()
+    ventana_oculta.withdraw()  # Oculta la ventana principal
+
+    #Verificar que exista un alfabeto
+    global alfabeto
+    if not alfabeto:  # Verifica si alfabeto está vacío
+        messagebox.showerror("Error", "Primero debe crear un alfabeto")
+        return
+
+    # Ingresar la cadena que se quiere comprobar como palindromo
+    cadena = simpledialog.askstring("Entrada", "Ingrese el lenguaje que desea observar")
+    if cadena is None:
+        messagebox.showerror("Error", "No se introdujo ninguna cadena")
+        return
+
+    # Determinar si es palindromo con el alfabeto
+    resultado = B.es_palindromo(cadena, alfabeto)
+    messagebox.showinfo("¿Es Palindromo?", resultado)
+
+def mostrar_palindromos():
+    # Crear una ventana oculta para usar simpledialog
+    ventana_oculta = tk.Tk()
+    ventana_oculta.withdraw()  # Oculta la ventana principal
+
+    global palindromos
+    
+    # Verificar si el conjunto de palindromos tiene elementos
+    if not palindromos:
+        messagebox.showerror("Error", "Primero debe generar los palindromos antes de poder verlos")
+        return
+    
+    messagebox.showinfo("Lenguaje", palindromos)
+
 def reemplazar_caracter():
     # Crear una ventana oculta para usar simpledialog
     ventana_oculta = tk.Tk()
@@ -339,7 +406,7 @@ def salir():
 # Crear ventana principal
 ventana = tk.Tk()
 ventana.title("Menú en Tkinter")
-ventana.geometry("400x500")
+ventana.geometry("400x650")
 
 # Crear barra de menú
 barra_menu = tk.Menu(ventana)
@@ -365,11 +432,14 @@ menu_ayuda.add_command(label="Acerca de", command=lambda: messagebox.showinfo("A
 boton_def_alfabeto = tk.Button(ventana, text="Definir Alfabeto", command=definir_alfabeto)
 boton_def_alfabeto.pack(pady=10)
 
+boton_ver_alfabeto = tk.Button(ventana, text="Ver Alfabeto", command=mostrar_alfabeto)
+boton_ver_alfabeto.pack(pady=10)
+
 boton_gen_lenguaje = tk.Button(ventana, text="Generar Lenguaje", command=generar_lenguaje)
 boton_gen_lenguaje.pack(pady=10)
 
-boton_mostrar = tk.Button(ventana, text="Mostrar Lenguaje", command=mostrar_lenguaje)
-boton_mostrar.pack(pady=10)
+boton_ver_lenguaje = tk.Button(ventana, text="Ver Lenguaje", command=mostrar_lenguaje)
+boton_ver_lenguaje.pack(pady=10)
 
 boton_unir_lenguaje = tk.Button(ventana, text="Unir Lenguajes", command=unir_lenguajes)
 boton_unir_lenguaje.pack(pady=10)
@@ -391,6 +461,15 @@ boton_invertir.pack(pady=10)
 
 boton_aleatorio = tk.Button(ventana, text="Reemplazar Por Caracter Aleatorio", command=reemplazar_por_aleatorio)
 boton_aleatorio.pack(pady=10)
+
+boton_gen_palindromos = tk.Button(ventana, text="Generar Palindromos", command=generar_palindromos_alfabeto)
+boton_gen_palindromos.pack(pady=10)
+
+boton_es_palindromo = tk.Button(ventana, text="Determinar Si Es Palindromo", command=es_palindromo)
+boton_es_palindromo.pack(pady=10)
+
+boton_ver_palindromos = tk.Button(ventana, text="Ver Palindromos", command=mostrar_palindromos)
+boton_ver_palindromos.pack(pady=10)
 
 # Ejecutar la ventana
 ventana.mainloop()
