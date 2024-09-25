@@ -3,20 +3,15 @@ import random
 
 def main ():
     alfabeto = definir_alfabeto()
-    lenguaje1 = generar_lenguaje(alfabeto, random.randint(3, 10))
-    lenguaje2 = generar_lenguaje(alfabeto, random.randint(3,10))  
-    lenguaje3 = generar_lenguaje(alfabeto, random.randint(3,10))  
-
-    
-
+    lenguaje1 = generar_lenguaje(alfabeto, 3)
 
 # Definir el lenguaje como un conjunto de palabras
 def definir_alfabeto():
-    n = int(input("¿Cuantos simbolos tendrá el alfabeto? "))
+    n = int(input("¿Cuantos simbolos tendrá el alfabeto? \nCantidad: "))
     
     # Inicializar el conjunto del lenguaje
     alfabeto = set()
-    
+    print("Ingrese caracteres individuales")
     for i in range(n):
         simbolo = input(f"Ingrese el simbolo {i+1}: ")
         alfabeto.add(simbolo)
@@ -24,7 +19,12 @@ def definir_alfabeto():
     return alfabeto
 
 def generar_lenguaje(alfabeto, longitud):
-    return set(generar_combinaciones(alfabeto, longitud))
+    cantidad = longitud*3
+    lista = list(generar_combinaciones(alfabeto, longitud))
+    # Si hay menos de 'cantidad' de combinaciones, devolver todos
+    if len(lista) <= cantidad:
+        return lista
+    return random.sample(lista, cantidad)
 
 def unir_lenguajes(lenguaje1, lenguaje2):
     union= set()
@@ -45,19 +45,19 @@ def concatenar_lenguajes(lenguaje1,lenguaje2):
 
 def calcular_cerradura_estrella(lenguaje1):
     longitud_maxima = 3
-    estrella.add('epsilon')
-    estrella = set()
+    estrella = []
+    estrella.append('epsilon')
     for palabra in lenguaje1:
         for i in range(1, longitud_maxima + 1):
-            estrella.add(palabra * i)
+            estrella.append(palabra * i)
     return estrella
 
 def calcular_cerradura_positiva(lenguaje1):
     longitud_maxima = 3
-    estrella = set()
+    estrella = []
     for palabra in lenguaje1:
         for i in range(1, longitud_maxima + 1):
-            estrella.add(palabra * i)
+            estrella.append(palabra * i)
     return estrella
     
 main()
