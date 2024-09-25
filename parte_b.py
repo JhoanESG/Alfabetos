@@ -1,20 +1,16 @@
-from main import *
 import random   
 import itertools
 
-def main ():
-    #PUNTO 3 FORMAR PALINDROMAS 
-    conjunto = {"a", "b", "t", "wz"}
-    palindromos = generar_palindromos_desde_caracteres(conjunto)
-    print(f"Palíndromos generados: {palindromos}")
+# def main ():
+#     #PUNTO 3 FORMAR PALINDROMAS 
+#     conjunto = {"a", "b", "t", "wz"}
+#     palindromos = generar_palindromos_desde_caracteres(conjunto)
+#     print(f"Palíndromos generados: {palindromos}")
 
-    #PUNTO 4 VERIFICAR QUE ES PALINDROME
-    cadena = input("Ingrese la cadena a verificar: ")
-    r = es_palindromo(cadena, palindromos)
-    print(r)
-    
-
-
+#     #PUNTO 4 VERIFICAR QUE ES PALINDROME
+#     cadena = input("Ingrese la cadena a verificar: ")
+#     r = es_palindromo(cadena, palindromos)
+#     print(r)
 
 def generar_palindromos_desde_caracteres(conjunto_cadenas):
     # Separar cada carácter del conjunto de cadenas en una lista de caracteres
@@ -93,5 +89,3 @@ def reemplazar_por_aleatorio(cadena):
         nueva_cadena += caracter_aleatorio
     
     return nueva_cadena
-
-main()

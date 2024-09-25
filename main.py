@@ -1,16 +1,15 @@
-def main():
-
-    alfabeto= definir_lenguaje()
-    longitud_palabra = int(input("¿Cuál es la longitud de las palabras que quieres generar? "))
-    combinaciones = generar_combinaciones(alfabeto, longitud_palabra)
-    imprimir_combinaciones(combinaciones)
-    lenguaje = definir_lenguaje()
-    cadena = input("Ingrese la cadena a verificar: ")
-    pertenece_al_lenguaje(lenguaje, cadena)
-    # Solicitar al usuario un prefijo y un sufijo
-    prefijo = input("Ingrese el prefijo a buscar: ")
-    sufijo = input("Ingrese el sufijo a buscar: ")
-    buscar_por_prefijo_sufijo(lenguaje, prefijo, sufijo)
+# def main():
+#     alfabeto= definir_lenguaje()
+#     longitud_palabra = int(input("¿Cuál es la longitud de las palabras que quieres generar? "))
+#     combinaciones = generar_combinaciones(alfabeto, longitud_palabra)
+#     imprimir_combinaciones(combinaciones)
+#     lenguaje = definir_lenguaje()
+#     cadena = input("Ingrese la cadena a verificar: ")
+#     pertenece_al_lenguaje(lenguaje, cadena)
+#     # Solicitar al usuario un prefijo y un sufijo
+#     prefijo = input("Ingrese el prefijo a buscar: ")
+#     sufijo = input("Ingrese el sufijo a buscar: ")
+#     buscar_por_prefijo_sufijo(lenguaje, prefijo, sufijo)
 
 # Función recursiva para generar todas las combinaciones de longitud dada
 def generar_combinaciones(alfabeto, longitud):
